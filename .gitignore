@@ -8,6 +8,7 @@
 /[Bb]uild/
 /[Bb]uilds/
 /[Ll]ogs/
+/[Mm]ockups/
 /[Uu]ser[Ss]ettings/
 
 # MemoryCaptures can get excessive in size.
@@ -25,6 +26,13 @@
 
 # Visual Studio cache directory
 .vs/
+.vsconfig
+
+# Visual Studio Code
+.vscode/
+
+# Jetbrain Rider Cache
+.idea/
 
 # Gradle cache directory
 .gradle/
