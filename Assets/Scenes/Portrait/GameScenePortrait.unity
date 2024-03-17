@@ -68885,7 +68885,7 @@ MonoBehaviour:
   - {fileID: 381568391}
   - {fileID: 1473280015}
   - {fileID: 1981737948}
-  tweenDuration: 0.1
+  tweenDuration: 1
   swappingOverlay: {fileID: 5612001263160564520}
   ensureNoStartingMatches: 1
 --- !u!1 &460668922449809873

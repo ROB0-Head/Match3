@@ -63,8 +63,8 @@ namespace Match3
                 }
             }
 
-            if (ensureNoStartingMatches) StartCoroutine(EnsureNoStartingMatches());
-
+            if (ensureNoStartingMatches)
+                StartCoroutine(EnsureNoStartingMatches());
             OnMatch += (type, count) => Debug.Log($"Matched {count}x {type.name}.");
         }
 
@@ -180,7 +180,7 @@ namespace Match3
 
             _isSwapping = false;
         }
-        
+
         private async Task<bool> TryMatchAsync()
         {
             var didMatch = false;
@@ -200,20 +200,70 @@ namespace Match3
                 foreach (var tile in tiles)
                     deflateSequence.Join(tile.Icon.transform.DOScale(Vector3.zero, tweenDuration).SetEase(Ease.InBack));
 
-                await deflateSequence.Play()
-                    .AsyncWaitForCompletion();
+                await deflateSequence.Play().AsyncWaitForCompletion();
 
                 var inflateSequence = DOTween.Sequence();
 
-                foreach (var tile in tiles)
+                bool isHorizontal = tiles.All(t => t.Y == tiles[0].Y & t.Y != 0);
+                bool isVertical = tiles.All(t => t.X == tiles[0].X);
+
+                if (isVertical)
                 {
-                    tile.Type = tileTypes[Random.Range(0, tileTypes.Length)];
-
-                    inflateSequence.Join(tile.Icon.transform.DOScale(Vector3.one, tweenDuration).SetEase(Ease.OutBack));
+                    tiles = tiles.OrderBy(t => t.Y).ToArray();
+                    for (int i = 0; i < rows.Count - tiles.Length; i++)
+                    {
+                        var currentTile = GetTile(tiles[i].X, tiles[i].Y);
+                        if (tiles[0].Y != 0)
+                        {
+                            var previousTile = GetTile(tiles[i].X, i);
+                            currentTile.Type = previousTile.Type;
+                            inflateSequence.Join(currentTile.Icon.transform.DOScale(Vector3.one, tweenDuration)
+                                .SetEase(Ease.OutBack));
+                            previousTile.Type = tileTypes[Random.Range(0, tileTypes.Length)];
+                            inflateSequence.Join(previousTile.Icon.transform.DOScale(Vector3.one, tweenDuration)
+                                .SetEase(Ease.OutBack));
+                        }
+                        else
+                        {
+                            currentTile.Type = tileTypes[Random.Range(0, tileTypes.Length)];
+                            inflateSequence.Join(currentTile.Icon.transform.DOScale(Vector3.one, tweenDuration)
+                                .SetEase(Ease.OutBack));
+                        }
+                    }
                 }
+                else if (isHorizontal)
+                {
+                    Tile currentTile = null;
+                    Tile previousTile = null;
+                    for (int j = 0; j < tiles.Length; j++)
+                    {
+                        for (int i = 0; i < tiles[0].Y; i++)
+                        {
+                            currentTile = GetTile(tiles[j].X, tiles[j].Y - i);
+                            previousTile = GetTile(tiles[j].X, tiles[j].Y - i - 1);
+                            currentTile.Type = previousTile.Type;
+                            inflateSequence.Join(currentTile.Icon.transform.DOScale(Vector3.one, tweenDuration).SetEase(Ease.OutBack));
+                        }
 
-                await inflateSequence.Play()
-                    .AsyncWaitForCompletion();
+                        if (currentTile != null)
+                        {
+                            previousTile.Type = tileTypes[Random.Range(0, tileTypes.Length)];
+                            inflateSequence.Join(previousTile.Icon.transform.DOScale(Vector3.one, tweenDuration)
+                                .SetEase(Ease.OutBack));
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (var tile in tiles)
+                    {
+                        tile.Type = tileTypes[Random.Range(0, tileTypes.Length)];
+                        inflateSequence.Join(tile.Icon.transform.DOScale(Vector3.one, tweenDuration)
+                            .SetEase(Ease.OutBack));
+                    }
+                }
+                
+                await inflateSequence.Play().AsyncWaitForCompletion();
 
                 OnMatch?.Invoke(Array.Find(tileTypes, tileType => tileType.id == match.TypeId), match.Tiles.Length);
 
@@ -224,7 +274,7 @@ namespace Match3
 
             return didMatch;
         }
-        
+
         private void Shuffle()
         {
             _isShuffling = true;
