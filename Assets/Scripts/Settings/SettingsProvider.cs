@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Settings
 {
-    [CreateAssetMenu(fileName = "SettingsProvider", menuName = "WITA/SettingsProvider", order = 0)]
+    [CreateAssetMenu(fileName = "SettingsProvider", menuName = "Match3/SettingsProvider", order = 0)]
     public class SettingsProvider : ScriptableObject
     {
         [ContextMenu("Sort alphabetically")]
