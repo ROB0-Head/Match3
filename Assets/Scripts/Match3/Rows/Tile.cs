@@ -10,7 +10,7 @@ namespace Match3
 
         private int x;
         private int y;
-        private TileTypeAsset _type;
+        private TileTypeData _type;
 
         public int X
         {
@@ -25,7 +25,7 @@ namespace Match3
         }
         
         
-        public TileTypeAsset Type
+        public TileTypeData Type
         {
             get => _type;
 
@@ -36,11 +36,11 @@ namespace Match3
 
                 _type = value;
 
-                Icon.sprite = _type.sprite;
+                Icon.sprite = _type.Sprite;
             }
         }
 
-        public TileData Data => new TileData(x, y, _type.id);
+        public TileData Data => new TileData(x, y, _type.TileType);
 
         
     }

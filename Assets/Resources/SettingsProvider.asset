@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51d742e6c1f64287bcbf4ece0ac2dc56, type: 3}
-  m_Name: LightBlue
+  m_Script: {fileID: 11500000, guid: 0437c3a14dbb754488adc82fe570476c, type: 3}
+  m_Name: SettingsProvider
   m_EditorClassIdentifier: 
-  TileType: 1
-  Sprite: {fileID: 21300000, guid: b3fa2c8c9f51441ce945ebb2166ac5d0, type: 3}
+  _settingsList:
+  - {fileID: 11400000, guid: eff54557fc50e574f895c2254eaea2b0, type: 2}

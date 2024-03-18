@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51d742e6c1f64287bcbf4ece0ac2dc56, type: 3}
   m_Name: Purple
   m_EditorClassIdentifier: 
-  id: 3
-  value: 5
-  sprite: {fileID: 21300000, guid: e357a41ae258b4ee6aba66741d359d21, type: 3}
+  TileType: 3
+  Sprite: {fileID: 21300000, guid: 2d04c4dc3334a41e0881e3973fb79445, type: 3}

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DG.Tweening;
+using Settings;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 using Random = UnityEngine.Random;
@@ -12,30 +13,28 @@ namespace Match3
 {
     public sealed class Board : MonoBehaviour
     {
-        [SerializeField] private TileTypeAsset[] tileTypes;
+        [SerializeField] private List<Row> _rows;
 
-        [SerializeField] private List<Row> rows;
+        [SerializeField] private float _tweenDuration;
 
-        [SerializeField] private float tweenDuration;
+        [SerializeField] private Transform _swappingOverlay;
 
-        [SerializeField] private Transform swappingOverlay;
-
-        [SerializeField] private bool ensureNoStartingMatches;
+        [SerializeField] private bool _ensureNoStartingMatches;
 
         private readonly List<Tile> _selection = new List<Tile>();
-
+        private List<TileTypeData> _tileTypes;
         private bool _isSwapping;
         private bool _isMatching;
         private bool _isShuffling;
 
-        public event Action<TileTypeAsset, int> OnMatch;
+        public event Action<TileTypeData, int> OnMatch;
 
         private TileData[,] Matrix
         {
             get
             {
-                var width = rows.Max(row => row.Tiles.Count);
-                var height = rows.Count;
+                var width = _rows.Max(row => row.Tiles.Count);
+                var height = _rows.Count;
 
                 var data = new TileData[width, height];
 
@@ -47,23 +46,28 @@ namespace Match3
             }
         }
 
+        private void Awake()
+        {
+            _tileTypes = SettingsProvider.Get<TileTypeDatas>().TileDatas;
+        }
+
         private void Start()
         {
-            for (var y = 0; y < rows.Count; y++)
+            for (var y = 0; y < _rows.Count; y++)
             {
-                for (var x = 0; x < rows.Max(row => row.Tiles.Count); x++)
+                for (var x = 0; x < _rows.Max(row => row.Tiles.Count); x++)
                 {
                     var tile = GetTile(x, y);
 
                     tile.X = x;
                     tile.Y = y;
 
-                    tile.Type = tileTypes[Random.Range(0, tileTypes.Length)];
+                    tile.Type = _tileTypes[Random.Range(0, _tileTypes.Count)];
                     tile.Button.onClick.AddListener(() => Select(tile));
                 }
             }
 
-            if (ensureNoStartingMatches)
+            if (_ensureNoStartingMatches)
                 StartCoroutine(EnsureNoStartingMatches());
             OnMatch += (type, count) => Debug.Log($"Matched {count}x {type.name}.");
         }
@@ -94,7 +98,7 @@ namespace Match3
             }
         }
 
-        private Tile GetTile(int x, int y) => rows[y].Tiles[x];
+        private Tile GetTile(int x, int y) => _rows[y].Tiles[x];
 
         private Tile[] GetTiles(IList<TileData> tileData)
         {
@@ -157,16 +161,16 @@ namespace Match3
             var icon1Transform = icon1.transform;
             var icon2Transform = icon2.transform;
 
-            icon1Transform.SetParent(swappingOverlay);
-            icon2Transform.SetParent(swappingOverlay);
+            icon1Transform.SetParent(_swappingOverlay);
+            icon2Transform.SetParent(_swappingOverlay);
 
             icon1Transform.SetAsLastSibling();
             icon2Transform.SetAsLastSibling();
 
             var sequence = DOTween.Sequence();
 
-            sequence.Join(icon1Transform.DOMove(icon2Transform.position, tweenDuration).SetEase(Ease.OutBack))
-                .Join(icon2Transform.DOMove(icon1Transform.position, tweenDuration).SetEase(Ease.OutBack));
+            sequence.Join(icon1Transform.DOMove(icon2Transform.position, _tweenDuration).SetEase(Ease.OutBack))
+                .Join(icon2Transform.DOMove(icon1Transform.position, _tweenDuration).SetEase(Ease.OutBack));
 
             await sequence.Play().AsyncWaitForCompletion();
 
@@ -198,7 +202,7 @@ namespace Match3
                 var deflateSequence = DOTween.Sequence();
 
                 foreach (var tile in tiles)
-                    deflateSequence.Join(tile.Icon.transform.DOScale(Vector3.zero, tweenDuration)
+                    deflateSequence.Join(tile.Icon.transform.DOScale(Vector3.zero, _tweenDuration)
                         .SetEase(Ease.InBack));
 
                 await deflateSequence.Play().AsyncWaitForCompletion();
@@ -218,16 +222,16 @@ namespace Match3
                         {
                             var previousTile = GetTile(tiles[i].X, i);
                             currentTile.Type = previousTile.Type;
-                            inflateSequence.Join(currentTile.Icon.transform.DOScale(Vector3.one, tweenDuration)
+                            inflateSequence.Join(currentTile.Icon.transform.DOScale(Vector3.one, _tweenDuration)
                                 .SetEase(Ease.OutBack));
-                            previousTile.Type = tileTypes[Random.Range(0, tileTypes.Length)];
-                            inflateSequence.Join(previousTile.Icon.transform.DOScale(Vector3.one, tweenDuration)
+                            previousTile.Type = _tileTypes[Random.Range(0, _tileTypes.Count)];
+                            inflateSequence.Join(previousTile.Icon.transform.DOScale(Vector3.one, _tweenDuration)
                                 .SetEase(Ease.OutBack));
                         }
                         else
                         {
-                            currentTile.Type = tileTypes[Random.Range(0, tileTypes.Length)];
-                            inflateSequence.Join(currentTile.Icon.transform.DOScale(Vector3.one, tweenDuration)
+                            currentTile.Type = _tileTypes[Random.Range(0, _tileTypes.Count)];
+                            inflateSequence.Join(currentTile.Icon.transform.DOScale(Vector3.one, _tweenDuration)
                                 .SetEase(Ease.OutBack));
                         }
                     }
@@ -243,14 +247,14 @@ namespace Match3
                             currentTile = GetTile(tiles[j].X, tiles[j].Y - i);
                             previousTile = GetTile(tiles[j].X, tiles[j].Y - i - 1);
                             currentTile.Type = previousTile.Type;
-                            inflateSequence.Join(currentTile.Icon.transform.DOScale(Vector3.one, tweenDuration)
+                            inflateSequence.Join(currentTile.Icon.transform.DOScale(Vector3.one, _tweenDuration)
                                 .SetEase(Ease.OutBack));
                         }
 
                         if (currentTile != null)
                         {
-                            previousTile.Type = tileTypes[Random.Range(0, tileTypes.Length)];
-                            inflateSequence.Join(previousTile.Icon.transform.DOScale(Vector3.one, tweenDuration)
+                            previousTile.Type = _tileTypes[Random.Range(0, _tileTypes.Count)];
+                            inflateSequence.Join(previousTile.Icon.transform.DOScale(Vector3.one, _tweenDuration)
                                 .SetEase(Ease.OutBack));
                         }
                     }
@@ -259,19 +263,19 @@ namespace Match3
                 {
                     foreach (var tile in tiles)
                     {
-                        tile.Type = tileTypes[Random.Range(0, tileTypes.Length)];
-                        inflateSequence.Join(tile.Icon.transform.DOScale(Vector3.one, tweenDuration)
+                        tile.Type = _tileTypes[Random.Range(0, _tileTypes.Count)];
+                        inflateSequence.Join(tile.Icon.transform.DOScale(Vector3.one, _tweenDuration)
                             .SetEase(Ease.OutBack));
                     }
                 }
 
                 await inflateSequence.Play().AsyncWaitForCompletion();
 
-                OnMatch?.Invoke(Array.Find(tileTypes, tileType => tileType.id == match.TypeId), match.Tiles.Length);
+                OnMatch?.Invoke(Array.Find(_tileTypes.ToArray(), tileType => tileType.TileType == match.TypeId),
+                    match.Tiles.Length);
 
                 match = TileDataMatrixUtility.FindBestMatch(Matrix);
             }
-
             _isMatching = false;
 
             return didMatch;
@@ -281,9 +285,9 @@ namespace Match3
         {
             _isShuffling = true;
 
-            foreach (var row in rows)
+            foreach (var row in _rows)
             foreach (var tile in row.Tiles)
-                tile.Type = tileTypes[Random.Range(0, tileTypes.Length)];
+                tile.Type = _tileTypes[Random.Range(0, _tileTypes.Count)];
 
             _isShuffling = false;
         }

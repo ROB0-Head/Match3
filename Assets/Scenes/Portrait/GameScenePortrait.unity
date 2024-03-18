@@ -666,7 +666,6 @@ GameObject:
   m_Component:
   - component: {fileID: 55076190}
   - component: {fileID: 55076192}
-  - component: {fileID: 55076191}
   m_Layer: 5
   m_Name: Row_New_1 (1)
   m_TagString: Untagged
@@ -699,25 +698,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &55076191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 55076189}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 251d24d8daee4427be26ce5f28a7c54e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Tiles:
-  - {fileID: 1480848304}
-  - {fileID: 1054191568}
-  - {fileID: 293450362}
-  - {fileID: 219217483}
-  - {fileID: 209815986}
-  - {fileID: 1950937367}
 --- !u!114 &55076192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10196,7 +10176,6 @@ GameObject:
   m_Component:
   - component: {fileID: 381568390}
   - component: {fileID: 381568392}
-  - component: {fileID: 381568391}
   m_Layer: 5
   m_Name: Row_New_1 (3)
   m_TagString: Untagged
@@ -10229,25 +10208,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &381568391
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 381568389}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 251d24d8daee4427be26ce5f28a7c54e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Tiles:
-  - {fileID: 1792122127}
-  - {fileID: 1025882648}
-  - {fileID: 1347768098}
-  - {fileID: 616553580}
-  - {fileID: 245481842}
-  - {fileID: 799279350}
 --- !u!114 &381568392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49032,7 +48992,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1473280014}
   - component: {fileID: 1473280016}
-  - component: {fileID: 1473280015}
   m_Layer: 5
   m_Name: Row_New_1 (4)
   m_TagString: Untagged
@@ -49065,25 +49024,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1473280015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1473280013}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 251d24d8daee4427be26ce5f28a7c54e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Tiles:
-  - {fileID: 581628868}
-  - {fileID: 1760245326}
-  - {fileID: 1339471490}
-  - {fileID: 1161846005}
-  - {fileID: 55877587}
-  - {fileID: 1936070951}
 --- !u!114 &1473280016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60063,7 +60003,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1936463813}
   - component: {fileID: 1936463815}
-  - component: {fileID: 1936463814}
   m_Layer: 5
   m_Name: Row_New_1 (2)
   m_TagString: Untagged
@@ -60096,25 +60035,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1936463814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1936463812}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 251d24d8daee4427be26ce5f28a7c54e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Tiles:
-  - {fileID: 628740950}
-  - {fileID: 1613926289}
-  - {fileID: 190190390}
-  - {fileID: 1489186271}
-  - {fileID: 725159890}
-  - {fileID: 697311261}
 --- !u!114 &1936463815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60737,7 +60657,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1981737947}
   - component: {fileID: 1981737949}
-  - component: {fileID: 1981737948}
   m_Layer: 5
   m_Name: Row_New_1 (5)
   m_TagString: Untagged
@@ -60770,25 +60689,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1981737948
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1981737946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 251d24d8daee4427be26ce5f28a7c54e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Tiles:
-  - {fileID: 872984924}
-  - {fileID: 1336899505}
-  - {fileID: 1296328701}
-  - {fileID: 2034914121}
-  - {fileID: 1751692277}
-  - {fileID: 1518779536}
 --- !u!114 &1981737949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67479,7 +67379,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2062960143}
   - component: {fileID: 2062960142}
-  - component: {fileID: 2062960141}
+  - component: {fileID: 2062960144}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -67487,26 +67387,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2062960141
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2062960139}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
 --- !u!114 &2062960142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67537,6 +67417,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2062960144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062960139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
+  m_CursorLockBehavior: 0
 --- !u!1 &2070596895
 GameObject:
   m_ObjectHideFlags: 0
@@ -68872,22 +68782,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b6ec82f2e7648bc8496f897f3212a9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileTypes:
-  - {fileID: 11400000, guid: d3cd1a0e3bdca2d4e879bd382f0ebb0f, type: 2}
-  - {fileID: 11400000, guid: ca55f697ab5526746864f7a215ad2ec9, type: 2}
-  - {fileID: 11400000, guid: 2e47566dd5c8a73499f13a330571b9eb, type: 2}
-  - {fileID: 11400000, guid: 5af0f2ae4a054274bb6fd3c1c996364f, type: 2}
-  - {fileID: 11400000, guid: d34cbff47bdbf7e4fb873fa4dd8feaf9, type: 2}
-  rows:
-  - {fileID: 922331141122037541}
-  - {fileID: 55076191}
-  - {fileID: 1936463814}
-  - {fileID: 381568391}
-  - {fileID: 1473280015}
-  - {fileID: 1981737948}
-  tweenDuration: 1
-  swappingOverlay: {fileID: 5612001263160564520}
-  ensureNoStartingMatches: 1
+  _rows:
+  - Tiles:
+    - {fileID: 1881175953468346038}
+    - {fileID: 34391755}
+    - {fileID: 1382994152}
+    - {fileID: 1634525760}
+    - {fileID: 1276186389}
+    - {fileID: 176126304}
+  - Tiles:
+    - {fileID: 1480848304}
+    - {fileID: 1054191568}
+    - {fileID: 293450362}
+    - {fileID: 219217483}
+    - {fileID: 209815986}
+    - {fileID: 1950937367}
+  - Tiles:
+    - {fileID: 628740950}
+    - {fileID: 1613926289}
+    - {fileID: 190190390}
+    - {fileID: 1489186271}
+    - {fileID: 725159890}
+    - {fileID: 697311261}
+  - Tiles:
+    - {fileID: 1792122127}
+    - {fileID: 1025882648}
+    - {fileID: 1347768098}
+    - {fileID: 616553580}
+    - {fileID: 245481842}
+    - {fileID: 799279350}
+  - Tiles:
+    - {fileID: 581628868}
+    - {fileID: 1760245326}
+    - {fileID: 1339471490}
+    - {fileID: 1161846005}
+    - {fileID: 55877587}
+    - {fileID: 1936070951}
+  - Tiles:
+    - {fileID: 872984924}
+    - {fileID: 1336899505}
+    - {fileID: 1296328701}
+    - {fileID: 2034914121}
+    - {fileID: 1751692277}
+    - {fileID: 1518779536}
+  _tweenDuration: 0.25
+  _swappingOverlay: {fileID: 5612001263160564520}
+  _ensureNoStartingMatches: 0
 --- !u!1 &460668922449809873
 GameObject:
   m_ObjectHideFlags: 0
@@ -68916,25 +68856,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 460668922449809873}
   m_CullTransparentMesh: 1
---- !u!114 &922331141122037541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1790295180186318487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 251d24d8daee4427be26ce5f28a7c54e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Tiles:
-  - {fileID: 1881175953468346038}
-  - {fileID: 34391755}
-  - {fileID: 1382994152}
-  - {fileID: 1634525760}
-  - {fileID: 1276186389}
-  - {fileID: 176126304}
 --- !u!114 &1790295180186318441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68996,7 +68917,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1790295180186318486}
   - component: {fileID: 1790295180186318441}
-  - component: {fileID: 922331141122037541}
   m_Layer: 5
   m_Name: Row_New_1
   m_TagString: Untagged
@@ -69150,7 +69070,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2217988694582010338}
   m_Layer: 5
-  m_Name: Board_Container
+  m_Name: BoardContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

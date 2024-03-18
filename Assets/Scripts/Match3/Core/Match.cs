@@ -2,7 +2,7 @@
 {
     public sealed class Match
     {
-        public readonly int TypeId;
+        public readonly ETileType TypeId;
 
         public readonly int Score;
 
