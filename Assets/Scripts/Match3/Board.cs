@@ -198,7 +198,8 @@ namespace Match3
                 var deflateSequence = DOTween.Sequence();
 
                 foreach (var tile in tiles)
-                    deflateSequence.Join(tile.Icon.transform.DOScale(Vector3.zero, tweenDuration).SetEase(Ease.InBack));
+                    deflateSequence.Join(tile.Icon.transform.DOScale(Vector3.zero, tweenDuration)
+                        .SetEase(Ease.InBack));
 
                 await deflateSequence.Play().AsyncWaitForCompletion();
 
@@ -210,7 +211,7 @@ namespace Match3
                 if (isVertical)
                 {
                     tiles = tiles.OrderBy(t => t.Y).ToArray();
-                    for (int i = 0; i < rows.Count - tiles.Length; i++)
+                    for (int i = 0; i < tiles.Length; i++)
                     {
                         var currentTile = GetTile(tiles[i].X, tiles[i].Y);
                         if (tiles[0].Y != 0)
@@ -242,7 +243,8 @@ namespace Match3
                             currentTile = GetTile(tiles[j].X, tiles[j].Y - i);
                             previousTile = GetTile(tiles[j].X, tiles[j].Y - i - 1);
                             currentTile.Type = previousTile.Type;
-                            inflateSequence.Join(currentTile.Icon.transform.DOScale(Vector3.one, tweenDuration).SetEase(Ease.OutBack));
+                            inflateSequence.Join(currentTile.Icon.transform.DOScale(Vector3.one, tweenDuration)
+                                .SetEase(Ease.OutBack));
                         }
 
                         if (currentTile != null)
@@ -262,7 +264,7 @@ namespace Match3
                             .SetEase(Ease.OutBack));
                     }
                 }
-                
+
                 await inflateSequence.Play().AsyncWaitForCompletion();
 
                 OnMatch?.Invoke(Array.Find(tileTypes, tileType => tileType.id == match.TypeId), match.Tiles.Length);
