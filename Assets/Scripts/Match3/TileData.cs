@@ -23,4 +23,13 @@
 		Purple,
 		Yellow
 	}
+	
+	public enum ElAbility
+	{
+		None,
+		HorizontalLightning,
+		VerticalLightning,
+		CrossLightning,
+		DestroySameColor
+	}
 }

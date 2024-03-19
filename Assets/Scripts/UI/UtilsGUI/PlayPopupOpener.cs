@@ -4,7 +4,7 @@ namespace Scripts
 {
     public class PlayPopupOpener : PopupOpener
     {
-        public int starsObtained = 0;
+        private int starsObtained = 0;
 
         public override void OpenPopup()
         {

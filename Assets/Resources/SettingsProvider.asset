@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: SettingsProvider
   m_EditorClassIdentifier: 
   _settingsList:
-  - {fileID: 11400000, guid: eff54557fc50e574f895c2254eaea2b0, type: 2}
+  - {fileID: 11400000, guid: fd9454cb37d7c134e8d277610a123891, type: 2}

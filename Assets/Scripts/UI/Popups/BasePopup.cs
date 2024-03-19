@@ -17,18 +17,6 @@ namespace UI.Popups
         {
             if(gameObject != null)
                 Destroy(gameObject);
-            
-            /*if (AnalyticsManager.Instance != null)
-            {
-                if (this is HeartPurchasePopup heartPurchasePopup)
-                {
-                    AnalyticsManager.Instance.SendPopUpHeartsPurchaseCloseEvent();
-                }
-                else if (this is SubscribePopupView subscribePopupView)
-                {
-                    AnalyticsManager.Instance.SendPopUpOfferCloseEvent();
-                }
-            }*/
 
             PopupSystem.CloseThisPopup(PopupId);
         }

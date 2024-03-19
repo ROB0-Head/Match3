@@ -1,0 +1,114 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21d0ebdf57894a90956fcbfc87abac36, type: 3}
+  m_Name: LevelsData
+  m_EditorClassIdentifier: 
+  tasks:
+  - Missions:
+    - TileType: 0
+      TargetCount: 5
+    - TileType: 2
+      TargetCount: 5
+    TotalMoves: 5
+    Score: 0
+    IsLocked: 0
+  - Missions:
+    - TileType: 0
+      TargetCount: 10
+    - TileType: 2
+      TargetCount: 5
+    TotalMoves: 10
+    Score: 0
+    IsLocked: 1
+  - Missions:
+    - TileType: 0
+      TargetCount: 10
+    - TileType: 2
+      TargetCount: 5
+    - TileType: 4
+      TargetCount: 5
+    TotalMoves: 10
+    Score: 0
+    IsLocked: 1
+  - Missions:
+    - TileType: 0
+      TargetCount: 10
+    - TileType: 1
+      TargetCount: 10
+    - TileType: 4
+      TargetCount: 10
+    TotalMoves: 10
+    Score: 0
+    IsLocked: 1
+  - Missions:
+    - TileType: 0
+      TargetCount: 15
+    - TileType: 1
+      TargetCount: 10
+    - TileType: 3
+      TargetCount: 10
+    TotalMoves: 15
+    Score: 0
+    IsLocked: 1
+  - Missions:
+    - TileType: 0
+      TargetCount: 15
+    - TileType: 4
+      TargetCount: 15
+    - TileType: 3
+      TargetCount: 15
+    TotalMoves: 15
+    Score: 0
+    IsLocked: 1
+  - Missions:
+    - TileType: 4
+      TargetCount: 15
+    - TileType: 2
+      TargetCount: 15
+    - TileType: 1
+      TargetCount: 15
+    TotalMoves: 20
+    Score: 0
+    IsLocked: 1
+  - Missions:
+    - TileType: 3
+      TargetCount: 20
+    - TileType: 0
+      TargetCount: 20
+    - TileType: 1
+      TargetCount: 20
+    TotalMoves: 20
+    Score: 0
+    IsLocked: 1
+  - Missions:
+    - TileType: 2
+      TargetCount: 25
+    - TileType: 1
+      TargetCount: 25
+    - TileType: 4
+      TargetCount: 25
+    TotalMoves: 25
+    Score: 0
+    IsLocked: 1
+  - Missions:
+    - TileType: 3
+      TargetCount: 30
+    - TileType: 0
+      TargetCount: 30
+    - TileType: 2
+      TargetCount: 30
+    TotalMoves: 30
+    Score: 0
+    IsLocked: 1
+  LockedLevelImage: {fileID: 21300000, guid: a1f225d2471b442c0ac417580962935f, type: 3}
+  UnlockedLevelImage: {fileID: 21300000, guid: b6fc5e06516a64c7e87b6a734fb303be, type: 3}
+  CurrentLevelImage: {fileID: 21300000, guid: f240326cf5c3e429babb24a9606ba4a8, type: 3}
