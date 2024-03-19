@@ -41,7 +41,6 @@ namespace Match3
         }
 
         public TileData Data => new TileData(x, y, _type.TileType);
-
         
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UI.Buttons;
 using UnityEngine;
 
 namespace Match3.Settings
@@ -9,9 +10,9 @@ namespace Match3.Settings
     {
         public List<Level> tasks;
 
-        public Sprite LockedLevelImage;
-        public Sprite UnlockedLevelImage;
+        public Sprite LevelImage;
         public Sprite CurrentLevelImage;
+        public List<Sprite> StarsSprite;
 
     }
     
@@ -20,8 +21,9 @@ namespace Match3.Settings
     {
         public List<Mission> Missions;
         public int TotalMoves;
+        public int StarsCount;
         public int Score;
-        public bool IsLocked;
+        public LevelButtonType LevelButtonType;
     }
     
     [Serializable]

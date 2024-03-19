@@ -19,16 +19,18 @@ MonoBehaviour:
     - TileType: 2
       TargetCount: 5
     TotalMoves: 5
+    StarsCount: 0
     Score: 0
-    IsLocked: 0
+    LevelButtonType: 3
   - Missions:
     - TileType: 0
       TargetCount: 10
     - TileType: 2
       TargetCount: 5
     TotalMoves: 10
+    StarsCount: 0
     Score: 0
-    IsLocked: 1
+    LevelButtonType: 0
   - Missions:
     - TileType: 0
       TargetCount: 10
@@ -37,8 +39,9 @@ MonoBehaviour:
     - TileType: 4
       TargetCount: 5
     TotalMoves: 10
+    StarsCount: 0
     Score: 0
-    IsLocked: 1
+    LevelButtonType: 0
   - Missions:
     - TileType: 0
       TargetCount: 10
@@ -47,8 +50,9 @@ MonoBehaviour:
     - TileType: 4
       TargetCount: 10
     TotalMoves: 10
+    StarsCount: 0
     Score: 0
-    IsLocked: 1
+    LevelButtonType: 0
   - Missions:
     - TileType: 0
       TargetCount: 15
@@ -57,8 +61,9 @@ MonoBehaviour:
     - TileType: 3
       TargetCount: 10
     TotalMoves: 15
+    StarsCount: 0
     Score: 0
-    IsLocked: 1
+    LevelButtonType: 0
   - Missions:
     - TileType: 0
       TargetCount: 15
@@ -67,8 +72,9 @@ MonoBehaviour:
     - TileType: 3
       TargetCount: 15
     TotalMoves: 15
+    StarsCount: 0
     Score: 0
-    IsLocked: 1
+    LevelButtonType: 0
   - Missions:
     - TileType: 4
       TargetCount: 15
@@ -77,8 +83,9 @@ MonoBehaviour:
     - TileType: 1
       TargetCount: 15
     TotalMoves: 20
+    StarsCount: 0
     Score: 0
-    IsLocked: 1
+    LevelButtonType: 0
   - Missions:
     - TileType: 3
       TargetCount: 20
@@ -87,8 +94,9 @@ MonoBehaviour:
     - TileType: 1
       TargetCount: 20
     TotalMoves: 20
+    StarsCount: 0
     Score: 0
-    IsLocked: 1
+    LevelButtonType: 0
   - Missions:
     - TileType: 2
       TargetCount: 25
@@ -97,8 +105,9 @@ MonoBehaviour:
     - TileType: 4
       TargetCount: 25
     TotalMoves: 25
+    StarsCount: 0
     Score: 0
-    IsLocked: 1
+    LevelButtonType: 0
   - Missions:
     - TileType: 3
       TargetCount: 30
@@ -107,8 +116,342 @@ MonoBehaviour:
     - TileType: 2
       TargetCount: 30
     TotalMoves: 30
+    StarsCount: 0
     Score: 0
-    IsLocked: 1
-  LockedLevelImage: {fileID: 21300000, guid: a1f225d2471b442c0ac417580962935f, type: 3}
-  UnlockedLevelImage: {fileID: 21300000, guid: b6fc5e06516a64c7e87b6a734fb303be, type: 3}
+    LevelButtonType: 0
+  - Missions:
+    - TileType: 3
+      TargetCount: 30
+    - TileType: 0
+      TargetCount: 30
+    - TileType: 2
+      TargetCount: 30
+    TotalMoves: 30
+    StarsCount: 0
+    Score: 0
+    LevelButtonType: 0
+  - Missions:
+    - TileType: 3
+      TargetCount: 30
+    - TileType: 0
+      TargetCount: 30
+    - TileType: 2
+      TargetCount: 30
+    TotalMoves: 30
+    StarsCount: 0
+    Score: 0
+    LevelButtonType: 0
+  - Missions:
+    - TileType: 3
+      TargetCount: 30
+    - TileType: 0
+      TargetCount: 30
+    - TileType: 2
+      TargetCount: 30
+    TotalMoves: 30
+    StarsCount: 0
+    Score: 0
+    LevelButtonType: 0
+  - Missions:
+    - TileType: 3
+      TargetCount: 30
+    - TileType: 0
+      TargetCount: 30
+    - TileType: 2
+      TargetCount: 30
+    TotalMoves: 30
+    StarsCount: 0
+    Score: 0
+    LevelButtonType: 0
+  - Missions:
+    - TileType: 3
+      TargetCount: 30
+    - TileType: 0
+      TargetCount: 30
+    - TileType: 2
+      TargetCount: 30
+    TotalMoves: 30
+    StarsCount: 0
+    Score: 0
+    LevelButtonType: 0
+  - Missions:
+    - TileType: 3
+      TargetCount: 30
+    - TileType: 0
+      TargetCount: 30
+    - TileType: 2
+      TargetCount: 30
+    TotalMoves: 30
+    StarsCount: 0
+    Score: 0
+    LevelButtonType: 0
+  - Missions:
+    - TileType: 3
+      TargetCount: 30
+    - TileType: 0
+      TargetCount: 30
+    - TileType: 2
+      TargetCount: 30
+    TotalMoves: 30
+    StarsCount: 0
+    Score: 0
+    LevelButtonType: 0
+  - Missions:
+    - TileType: 3
+      TargetCount: 30
+    - TileType: 0
+      TargetCount: 30
+    - TileType: 2
+      TargetCount: 30
+    TotalMoves: 30
+    StarsCount: 0
+    Score: 0
+    LevelButtonType: 0
+  - Missions:
+    - TileType: 3
+      TargetCount: 30
+    - TileType: 0
+      TargetCount: 30
+    - TileType: 2
+      TargetCount: 30
+    TotalMoves: 30
+    StarsCount: 0
+    Score: 0
+    LevelButtonType: 0
+  - Missions:
+    - TileType: 3
+      TargetCount: 30
+    - TileType: 0
+      TargetCount: 30
+    - TileType: 2
+      TargetCount: 30
+    TotalMoves: 30
+    StarsCount: 0
+    Score: 0
+    LevelButtonType: 0
+  - Missions:
+    - TileType: 3
+      TargetCount: 30
+    - TileType: 0
+      TargetCount: 30
+    - TileType: 2
+      TargetCount: 30
+    TotalMoves: 30
+    StarsCount: 0
+    Score: 0
+    LevelButtonType: 0
+  - Missions:
+    - TileType: 3
+      TargetCount: 30
+    - TileType: 0
+      TargetCount: 30
+    - TileType: 2
+      TargetCount: 30
+    TotalMoves: 30
+    StarsCount: 0
+    Score: 0
+    LevelButtonType: 0
+  - Missions:
+    - TileType: 3
+      TargetCount: 30
+    - TileType: 0
+      TargetCount: 30
+    - TileType: 2
+      TargetCount: 30
+    TotalMoves: 30
+    StarsCount: 0
+    Score: 0
+    LevelButtonType: 0
+  - Missions:
+    - TileType: 3
+      TargetCount: 30
+    - TileType: 0
+      TargetCount: 30
+    - TileType: 2
+      TargetCount: 30
+    TotalMoves: 30
+    StarsCount: 0
+    Score: 0
+    LevelButtonType: 0
+  - Missions:
+    - TileType: 3
+      TargetCount: 30
+    - TileType: 0
+      TargetCount: 30
+    - TileType: 2
+      TargetCount: 30
+    TotalMoves: 30
+    StarsCount: 0
+    Score: 0
+    LevelButtonType: 0
+  - Missions:
+    - TileType: 3
+      TargetCount: 30
+    - TileType: 0
+      TargetCount: 30
+    - TileType: 2
+      TargetCount: 30
+    TotalMoves: 30
+    StarsCount: 0
+    Score: 0
+    LevelButtonType: 0
+  - Missions:
+    - TileType: 3
+      TargetCount: 30
+    - TileType: 0
+      TargetCount: 30
+    - TileType: 2
+      TargetCount: 30
+    TotalMoves: 30
+    StarsCount: 0
+    Score: 0
+    LevelButtonType: 0
+  - Missions:
+    - TileType: 3
+      TargetCount: 30
+    - TileType: 0
+      TargetCount: 30
+    - TileType: 2
+      TargetCount: 30
+    TotalMoves: 30
+    StarsCount: 0
+    Score: 0
+    LevelButtonType: 0
+  - Missions:
+    - TileType: 3
+      TargetCount: 30
+    - TileType: 0
+      TargetCount: 30
+    - TileType: 2
+      TargetCount: 30
+    TotalMoves: 30
+    StarsCount: 0
+    Score: 0
+    LevelButtonType: 0
+  - Missions:
+    - TileType: 3
+      TargetCount: 30
+    - TileType: 0
+      TargetCount: 30
+    - TileType: 2
+      TargetCount: 30
+    TotalMoves: 30
+    StarsCount: 0
+    Score: 0
+    LevelButtonType: 0
+  - Missions:
+    - TileType: 3
+      TargetCount: 30
+    - TileType: 0
+      TargetCount: 30
+    - TileType: 2
+      TargetCount: 30
+    TotalMoves: 30
+    StarsCount: 0
+    Score: 0
+    LevelButtonType: 0
+  - Missions:
+    - TileType: 3
+      TargetCount: 30
+    - TileType: 0
+      TargetCount: 30
+    - TileType: 2
+      TargetCount: 30
+    TotalMoves: 30
+    StarsCount: 0
+    Score: 0
+    LevelButtonType: 0
+  - Missions:
+    - TileType: 3
+      TargetCount: 30
+    - TileType: 0
+      TargetCount: 30
+    - TileType: 2
+      TargetCount: 30
+    TotalMoves: 30
+    StarsCount: 0
+    Score: 0
+    LevelButtonType: 0
+  - Missions:
+    - TileType: 3
+      TargetCount: 30
+    - TileType: 0
+      TargetCount: 30
+    - TileType: 2
+      TargetCount: 30
+    TotalMoves: 30
+    StarsCount: 0
+    Score: 0
+    LevelButtonType: 0
+  - Missions:
+    - TileType: 3
+      TargetCount: 30
+    - TileType: 0
+      TargetCount: 30
+    - TileType: 2
+      TargetCount: 30
+    TotalMoves: 30
+    StarsCount: 0
+    Score: 0
+    LevelButtonType: 0
+  - Missions:
+    - TileType: 3
+      TargetCount: 30
+    - TileType: 0
+      TargetCount: 30
+    - TileType: 2
+      TargetCount: 30
+    TotalMoves: 30
+    StarsCount: 0
+    Score: 0
+    LevelButtonType: 0
+  - Missions:
+    - TileType: 3
+      TargetCount: 30
+    - TileType: 0
+      TargetCount: 30
+    - TileType: 2
+      TargetCount: 30
+    TotalMoves: 30
+    StarsCount: 0
+    Score: 0
+    LevelButtonType: 0
+  - Missions:
+    - TileType: 3
+      TargetCount: 30
+    - TileType: 0
+      TargetCount: 30
+    - TileType: 2
+      TargetCount: 30
+    TotalMoves: 30
+    StarsCount: 0
+    Score: 0
+    LevelButtonType: 0
+  - Missions:
+    - TileType: 3
+      TargetCount: 30
+    - TileType: 0
+      TargetCount: 30
+    - TileType: 2
+      TargetCount: 30
+    TotalMoves: 30
+    StarsCount: 0
+    Score: 0
+    LevelButtonType: 0
+  - Missions:
+    - TileType: 3
+      TargetCount: 30
+    - TileType: 0
+      TargetCount: 30
+    - TileType: 2
+      TargetCount: 30
+    TotalMoves: 30
+    StarsCount: 0
+    Score: 0
+    LevelButtonType: 0
+  LevelImage: {fileID: 21300000, guid: a1f225d2471b442c0ac417580962935f, type: 3}
   CurrentLevelImage: {fileID: 21300000, guid: f240326cf5c3e429babb24a9606ba4a8, type: 3}
+  StarsSprite:
+  - {fileID: 21300000, guid: 3f4ff29970fd446aea73c9f78082fb80, type: 3}
+  - {fileID: 21300000, guid: 6448ea2fe108544ec9064af2ab2aa4ce, type: 3}
+  - {fileID: 21300000, guid: 6b8528abbeb564998995b6067f50cdf3, type: 3}

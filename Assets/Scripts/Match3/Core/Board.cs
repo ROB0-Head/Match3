@@ -135,6 +135,19 @@ namespace Match3
 
             await SwapAsync(_selection[0], _selection[1]);
 
+            if (IsFourTileCombination(_selection.ToArray()))
+            {
+                var swappedTile = _selection[0].X < _selection[1].X ? _selection[0] : _selection[1];
+                if (_selection[0].X == _selection[1].X)
+                {
+                    swappedTile.Type = _tileTypes.Find(tileType => tileType.TileAbility == EAbility.HorizontalLightning);
+                }
+                else
+                {
+                    swappedTile.Type = _tileTypes.Find(tileType => tileType.TileAbility == EAbility.VerticalLightning);
+                }
+            }
+
             if (!await TryMatchAsync())
                 await SwapAsync(_selection[0], _selection[1]);
 
@@ -150,6 +163,35 @@ namespace Match3
 
             _selection.Clear();
         }
+
+        private bool IsFourTileCombination(Tile[] tiles)
+        {
+            if (tiles.Length != 4)
+                return false;
+
+            var firstTileType = tiles[0].Type;
+            if (tiles.Any(tile => tile.Type != firstTileType))
+                return false;
+
+            var horizontalOrder = tiles.OrderBy(tile => tile.X).ToArray();
+            var horizontalDistinctCount = horizontalOrder.Select((tile, index) => tile.X - index).Distinct().Count();
+            if (horizontalDistinctCount == 1)
+            {
+                var swappedTile = _selection[0].X < _selection[1].X ? _selection[0] : _selection[1];
+                return tiles.Any(tile => tile == swappedTile);
+            }
+
+            var verticalOrder = tiles.OrderBy(tile => tile.Y).ToArray();
+            var verticalDistinctCount = verticalOrder.Select((tile, index) => tile.Y - index).Distinct().Count();
+            if (verticalDistinctCount == 1)
+            {
+                var swappedTile = _selection[0].Y < _selection[1].Y ? _selection[0] : _selection[1];
+                return tiles.Any(tile => tile == swappedTile);
+            }
+
+            return false;
+        }
+
 
         private async Task SwapAsync(Tile tile1, Tile tile2)
         {
@@ -271,11 +313,11 @@ namespace Match3
 
                 await inflateSequence.Play().AsyncWaitForCompletion();
 
-                OnMatch?.Invoke(Array.Find(_tileTypes.ToArray(), tileType => tileType.TileType == match.TypeId),
-                    match.Tiles.Length);
+                OnMatch?.Invoke(Array.Find(_tileTypes.ToArray(), tileType => tileType.TileType == match.TypeId), match.Tiles.Length);
 
                 match = TileDataMatrixUtility.FindBestMatch(Matrix);
             }
+
             _isMatching = false;
 
             return didMatch;

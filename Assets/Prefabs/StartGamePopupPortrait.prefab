@@ -7752,8 +7752,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 3835993106207717112}
+        m_TargetAssemblyTypeName: UI.Popups.BasePopup, Assembly-CSharp
         m_MethodName: Close
         m_Mode: 1
         m_Arguments:

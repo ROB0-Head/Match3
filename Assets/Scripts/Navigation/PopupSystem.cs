@@ -3,8 +3,9 @@ using System.Linq;
 using Settings;
 using UI.Popups;
 using UnityEngine;
+using Utils;
 
-public class PopupSystem : MonoBehaviour
+public class PopupSystem : MonoSingleton<PopupSystem>
 {
     public GameObject Background;
     private static PopupSystem _instance;

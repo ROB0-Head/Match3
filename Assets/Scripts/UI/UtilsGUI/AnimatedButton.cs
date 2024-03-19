@@ -12,7 +12,7 @@ namespace Scripts
         
         private Animator m_animator;
         
-        public ButtonClickedEvent OnClick
+        public ButtonClickedEvent onClick
         {
             get { return m_OnClick; }
             set { m_OnClick = value; }

@@ -4,34 +4,18 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 
-public static class Utils
+namespace Utils
 {
-    public static float CalculateTypingTime(int characterCount)
+    public static class Utils
     {
-        float typingTime;
-        if (characterCount <= 50)
-        {
-            typingTime = 1f;
-        }
-        else if (characterCount <= 150)
-        {
-            typingTime = 2f;
-        }
-        else
-        {
-            typingTime = characterCount / 30f;
-        }
+        public static bool IsNullOrEmpty(this IEnumerable @this)
+            => !(@this?.GetEnumerator().MoveNext() ?? false);
 
-        return typingTime;
-    }
-
-    public static bool IsNullOrEmpty(this IEnumerable @this)
-        => !(@this?.GetEnumerator().MoveNext() ?? false);
-
-    public static void Shuffle<T>(this IList<T> list)
-    {
-        var shuffledList = list.OrderBy(x => new Random().Next()).ToList();
-        list.Clear();
-        list.AddRange(shuffledList);
+        public static void Shuffle<T>(this IList<T> list)
+        {
+            var shuffledList = list.OrderBy(x => new Random().Next()).ToList();
+            list.Clear();
+            list.AddRange(shuffledList);
+        }
     }
 }

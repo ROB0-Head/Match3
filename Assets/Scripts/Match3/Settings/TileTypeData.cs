@@ -6,6 +6,7 @@ namespace Match3
 	public sealed class TileTypeData : ScriptableObject
 	{
 		public ETileType TileType;
+		public EAbility TileAbility;
 		public Sprite Sprite;
 	}
 }

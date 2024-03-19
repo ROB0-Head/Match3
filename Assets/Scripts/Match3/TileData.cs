@@ -24,7 +24,7 @@
 		Yellow
 	}
 	
-	public enum ElAbility
+	public enum EAbility
 	{
 		None,
 		HorizontalLightning,

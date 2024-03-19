@@ -2,31 +2,23 @@ using DG.Tweening;
 using Settings;
 using UI.Screens;
 using UnityEngine;
-using Sequence = DG.Tweening.Sequence;
-using SettingsProvider = Settings.SettingsProvider;
+using Utils;
+
 
 namespace Navigation
 {
-    public class NavigationController : MonoBehaviour
+    public class NavigationController : MonoSingleton<NavigationController>
     {
         [SerializeField] private GameObject _canvas;
-
-        private static NavigationController _instance;
-
-        public static NavigationController Instance => _instance;
-
+        
         private DefaultScreen _currentScreen;
 
         public GameObject Canvas => _canvas;
         
         public DefaultScreen CurrentScreen => _currentScreen;
+        
 
-        public void Awake()
-        {
-            _instance = this;
-        }
-
-        /*void Start()
+        void Start()
         {
             ScreenTransition<MainScreen>();
         }
@@ -60,6 +52,6 @@ namespace Navigation
                 _currentScreen = Instantiate(SettingsProvider.Get<PrefabSet>().GetScreen<T>(), _canvas.transform);
                 _currentScreen.Setup(settings);
             }
-        }*/
+        }
     }
 }

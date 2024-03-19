@@ -18,6 +18,7 @@ namespace UI.Popups
         {
             base.Setup(popupSettings);
             _settings = (StartGamePopupSettings)popupSettings;
+            
             if (_settings.StarsObtained == 0)
             {
                 _leftStarImage.color = _disabledColor;
