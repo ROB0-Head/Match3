@@ -1215,7 +1215,7 @@ GameObject:
   - component: {fileID: 188401747}
   - component: {fileID: 188401748}
   m_Layer: 0
-  m_Name: LevelManager
+  m_Name: LevelSelectionManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19172,7 +19172,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 100
   field of view: 60
   orthographic: 1
   orthographic size: 5

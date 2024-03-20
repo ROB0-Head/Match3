@@ -23,7 +23,7 @@ namespace UI.Buttons
         private Animator _animator;
         
         private int _starsCount;
-        private LevelButtonType _levelButtonType;
+        private ELevelButtonType _levelButtonType;
         
         public void Setup(LevelButtonSettings buttonSettings, Action onButtonClick = null)
         {
@@ -36,7 +36,7 @@ namespace UI.Buttons
             
             switch (_levelButtonType)
             {
-                case LevelButtonType.Current:
+                case ELevelButtonType.Current:
                     _levelSprite.sprite = buttonSettings.LevelSprite;
                     _shine.SetActive(true);
                     _lockedState.SetActive(false);
@@ -51,7 +51,7 @@ namespace UI.Buttons
                     }
                     break;
                 
-                case LevelButtonType.Unlocked:
+                case ELevelButtonType.Unlocked:
                     _lockedState.SetActive(false);
                     _button.interactable = true;
                     
@@ -76,8 +76,6 @@ namespace UI.Buttons
             if (_audioSource != null)
                 _audioSource.Play();
             
-            LevelManager.Instance.SetCurrentLevel(int.Parse(_levelNumber.text));
-            
             PopupSystem.ShowPopup<StartGamePopup>(new StartGamePopupSettings()
             {
                 StarsObtained =  _starsCount
@@ -92,10 +90,10 @@ namespace UI.Buttons
         public int StarsCount;
         public Sprite LevelSprite;
         public List<Sprite> StarsSprite;
-        public LevelButtonType LevelButtonType;
+        public ELevelButtonType LevelButtonType;
     }
 
-    public enum LevelButtonType
+    public enum ELevelButtonType
     {
         None,
         Locked,

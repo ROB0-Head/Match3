@@ -19,4 +19,5 @@ MonoBehaviour:
   <Popups>k__BackingField:
   - {fileID: 3835993106207717112, guid: 61f6b0636859d514db1531278fdaf69b, type: 3}
   <Buttons>k__BackingField: []
-  <Prefabs>k__BackingField: []
+  <Prefabs>k__BackingField:
+  - {fileID: 1448312640537275285, guid: 6ca4a3699589bd1408ab62740ab5ee91, type: 3}

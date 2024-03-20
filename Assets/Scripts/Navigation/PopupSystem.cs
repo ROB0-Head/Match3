@@ -5,7 +5,7 @@ using UI.Popups;
 using UnityEngine;
 using Utils;
 
-public class PopupSystem : MonoSingleton<PopupSystem>
+public class PopupSystem : MonoBehaviour
 {
     public GameObject Background;
     private static PopupSystem _instance;

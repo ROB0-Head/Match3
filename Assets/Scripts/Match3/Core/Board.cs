@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DG.Tweening;
+using Match3.Core;
 using Settings;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
@@ -14,6 +15,8 @@ namespace Match3
     public sealed class Board : MonoBehaviour
     {
         [SerializeField] private List<Row> _rows;
+        
+        [SerializeField] private LevelManager _levelManager;
 
         [SerializeField] private float _tweenDuration;
 
@@ -70,6 +73,7 @@ namespace Match3
             if (_ensureNoStartingMatches)
                 StartCoroutine(EnsureNoStartingMatches());
             OnMatch += (type, count) => Debug.Log($"Matched {count}x {type.name}.");
+            OnMatch += (type, count) => _levelManager.UpdateDestroyedTilesCount(type, count);
         }
 
         private void Update()
@@ -135,7 +139,9 @@ namespace Match3
 
             await SwapAsync(_selection[0], _selection[1]);
 
-            if (IsFourTileCombination(_selection.ToArray()))
+            
+            //to do: доделать обработку комбинацию из 4-х
+            /*if (IsFourTileCombination(_selection.ToArray()))
             {
                 var swappedTile = _selection[0].X < _selection[1].X ? _selection[0] : _selection[1];
                 if (_selection[0].X == _selection[1].X)
@@ -146,10 +152,13 @@ namespace Match3
                 {
                     swappedTile.Type = _tileTypes.Find(tileType => tileType.TileAbility == EAbility.VerticalLightning);
                 }
-            }
+            }*/
 
             if (!await TryMatchAsync())
+            {
+                
                 await SwapAsync(_selection[0], _selection[1]);
+            }
 
             var matrix = Matrix;
 
@@ -223,7 +232,7 @@ namespace Match3
             tile2.Icon = icon1;
 
             (tile1.Type, tile2.Type) = (tile2.Type, tile1.Type);
-
+            _levelManager.SetupCurrentMovesText();
             _isSwapping = false;
         }
 
@@ -237,6 +246,7 @@ namespace Match3
 
             while (match != null)
             {
+                
                 didMatch = true;
 
                 var tiles = GetTiles(match.Tiles);
@@ -246,7 +256,7 @@ namespace Match3
                 foreach (var tile in tiles)
                     deflateSequence.Join(tile.Icon.transform.DOScale(Vector3.zero, _tweenDuration)
                         .SetEase(Ease.InBack));
-
+                
                 await deflateSequence.Play().AsyncWaitForCompletion();
 
                 var inflateSequence = DOTween.Sequence();
@@ -314,7 +324,7 @@ namespace Match3
                 await inflateSequence.Play().AsyncWaitForCompletion();
 
                 OnMatch?.Invoke(Array.Find(_tileTypes.ToArray(), tileType => tileType.TileType == match.TypeId), match.Tiles.Length);
-
+                
                 match = TileDataMatrixUtility.FindBestMatch(Matrix);
             }
 

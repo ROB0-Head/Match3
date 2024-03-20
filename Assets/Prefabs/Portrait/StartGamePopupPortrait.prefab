@@ -256,8 +256,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 22419878}
-  - component: {fileID: 11420934}
   - component: {fileID: 9597026}
+  - component: {fileID: 3835993106207717112}
   m_Layer: 5
   m_Name: StartGamePopupPortrait
   m_TagString: Untagged
@@ -295,24 +295,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &11420934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 109706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b5a41addf9464b0bb3e9713335ce6d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  backgroundColor: {r: 0.007843138, g: 0.02745098, b: 0.03529412, a: 0.78431374}
-  enabledColor: {r: 0.99607843, g: 1, b: 1, a: 1}
-  disabledColor: {r: 0, g: 0, b: 0, a: 0}
-  leftStarImage: {fileID: 11435786}
-  middleStarImage: {fileID: 11419046}
-  rightStarImage: {fileID: 11405704}
 --- !u!95 &9597026
 Animator:
   serializedVersion: 5
@@ -334,6 +316,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3835993106207717112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad0edfce789a4a5789ba456d97281511, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enabledColor: {r: 0.9960785, g: 1, b: 1, a: 0}
+  _disabledColor: {r: 0, g: 0, b: 0, a: 0}
+  _leftStarImage: {fileID: 11490480}
+  _middleStarImage: {fileID: 11414946}
+  _rightStarImage: {fileID: 11474022}
 --- !u!1 &110482
 GameObject:
   m_ObjectHideFlags: 0
@@ -7753,6 +7752,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 3835993106207717112}
+        m_TargetAssemblyTypeName: UI.Popups.BasePopup, Assembly-CSharp
+        m_MethodName: Close
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 8240140}
         m_TargetAssemblyTypeName: 
         m_MethodName: Play
