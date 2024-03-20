@@ -40,7 +40,7 @@ namespace SaveSystem
             }
             else
             {
-                return new List<Level>();
+                return SettingsProvider.Get<LevelsData>().Tasks;
             }
         }
         

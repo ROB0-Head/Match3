@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21d0ebdf57894a90956fcbfc87abac36, type: 3}
   m_Name: LevelsData
   m_EditorClassIdentifier: 
-  tasks:
+  Tasks:
   - Missions:
     - TileType: 0
       TargetCount: 5
