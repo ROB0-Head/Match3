@@ -12,5 +12,11 @@ namespace Scripts
         {
             Transition.LoadLevel(scene, duration, color);
         }
+        
+        public void QuitGame()
+        {
+            Debug.Log("Выход из игры...");
+            Application.Quit(); // Закрыть приложение
+        }
     }
 }

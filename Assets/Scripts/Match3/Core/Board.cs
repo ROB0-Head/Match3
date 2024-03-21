@@ -199,41 +199,44 @@ namespace Match3
 
         private async Task SwapAsync(Tile tile1, Tile tile2)
         {
-            _isSwapping = true;
-
-            var icon1 = tile1.Icon;
-            var icon2 = tile2.Icon;
-
-            var icon1Transform = icon1.transform;
-            var icon2Transform = icon2.transform;
-
-            icon1Transform.SetParent(_swappingOverlay);
-            icon2Transform.SetParent(_swappingOverlay);
-
-            icon1Transform.SetAsLastSibling();
-            icon2Transform.SetAsLastSibling();
-
-            var sequence = DOTween.Sequence();
-
-            sequence.Join(icon1Transform.DOMove(icon2Transform.position, _tweenDuration).SetEase(Ease.OutBack))
-                .Join(icon2Transform.DOMove(icon1Transform.position, _tweenDuration).SetEase(Ease.OutBack));
-
-            await sequence.Play().AsyncWaitForCompletion();
-
-            icon1Transform.SetParent(tile2.transform);
-            icon2Transform.SetParent(tile1.transform);
-
-            tile1.Icon = icon2;
-            tile2.Icon = icon1;
-
-            (tile1.Type, tile2.Type) = (tile2.Type, tile1.Type);
-            _isSwapping = false;
-            
-            _levelManager.SetupCurrentMovesText();
-            
-            if (!await TryMatchAsync())
+            if (this != null)
             {
-                await SwapAsync(_selection[0], _selection[1]);
+                _isSwapping = true;
+
+                var icon1 = tile1.Icon;
+                var icon2 = tile2.Icon;
+
+                var icon1Transform = icon1.transform;
+                var icon2Transform = icon2.transform;
+
+                icon1Transform.SetParent(_swappingOverlay);
+                icon2Transform.SetParent(_swappingOverlay);
+
+                icon1Transform.SetAsLastSibling();
+                icon2Transform.SetAsLastSibling();
+
+                var sequence = DOTween.Sequence();
+
+                sequence.Join(icon1Transform.DOMove(icon2Transform.position, _tweenDuration).SetEase(Ease.OutBack))
+                    .Join(icon2Transform.DOMove(icon1Transform.position, _tweenDuration).SetEase(Ease.OutBack));
+
+                await sequence.Play().AsyncWaitForCompletion();
+
+                icon1Transform.SetParent(tile2.transform);
+                icon2Transform.SetParent(tile1.transform);
+
+                tile1.Icon = icon2;
+                tile2.Icon = icon1;
+
+                (tile1.Type, tile2.Type) = (tile2.Type, tile1.Type);
+                _isSwapping = false;
+            
+                _levelManager.SetupCurrentMovesText();
+            
+                if (!await TryMatchAsync())
+                {
+                    await SwapAsync(_selection[0], _selection[1]);
+                }
             }
         }
 

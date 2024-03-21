@@ -12805,6 +12805,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11447932}
+        m_TargetAssemblyTypeName: Scripts.Popup, Assembly-CSharp
+        m_MethodName: Close
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   interactable: 1
 --- !u!82 &82000011955131052
 AudioSource:
@@ -18537,6 +18549,7 @@ GameObject:
   - component: {fileID: 95000013894854724}
   - component: {fileID: 114000013399898720}
   - component: {fileID: 82000014015632246}
+  - component: {fileID: 1138512953682367552}
   m_Layer: 5
   m_Name: Restart Button
   m_TagString: Untagged
@@ -18621,6 +18634,18 @@ MonoBehaviour:
       - m_Target: {fileID: 198000014015469084}
         m_TargetAssemblyTypeName: 
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1138512953682367552}
+        m_TargetAssemblyTypeName: Scripts.SceneTransition, Assembly-CSharp
+        m_MethodName: PerformTransition
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18727,6 +18752,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &1138512953682367552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000011972854924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55f7eaf6dd2a2478c939f6bb532e39ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene: GameScenePortrait
+  duration: 0.7
+  color: {r: 0.41176474, g: 0.8352942, b: 0.8745099, a: 1}
 --- !u!1 &1000012125802516
 GameObject:
   m_ObjectHideFlags: 0
