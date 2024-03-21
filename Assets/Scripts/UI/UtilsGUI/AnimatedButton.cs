@@ -1,4 +1,6 @@
 ﻿using System;
+using Match3.Settings;
+using Settings;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -45,6 +47,9 @@ namespace Scripts
         {
             m_OnClick.Invoke();
         }
+
+        public void SetupNewLevel() => SettingsProvider.Get<LevelsData>().NextLevel();
+
     }
 
     [Serializable]

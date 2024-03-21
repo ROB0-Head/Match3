@@ -20,6 +20,14 @@ namespace Match3.Settings
         private int _selectedLevel;
         
         public void SelectLevel(int levelNumber) => _selectedLevel = levelNumber;
+        public void NextLevel()
+        {
+            var nextLevel = _selectedLevel + 1;
+            if (Tasks[nextLevel].LevelButtonType == ELevelButtonType.Current)
+            {
+                _selectedLevel++;
+            }
+        }
         
         public Level GetUnlockedTask()
         {

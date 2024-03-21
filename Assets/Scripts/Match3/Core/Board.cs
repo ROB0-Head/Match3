@@ -23,7 +23,8 @@ namespace Match3
         [SerializeField] private Transform _swappingOverlay;
 
         [SerializeField] private bool _ensureNoStartingMatches;
-
+        
+        
         private readonly List<Tile> _selection = new List<Tile>();
         private List<TileTypeData> _tileTypes;
         private bool _isSwapping;
@@ -32,6 +33,7 @@ namespace Match3
 
         public event Action<TileTypeData, int> OnMatch;
 
+        
         private TileData[,] Matrix
         {
             get
@@ -120,14 +122,20 @@ namespace Match3
         {
             if (_isSwapping || _isMatching || _isShuffling)
                 return;
-
+            
             if (!_selection.Contains(tile))
             {
                 if (_selection.Count > 0)
                 {
-                    if (Math.Abs(tile.X - _selection[0].X) == 1 && Math.Abs(tile.Y - _selection[0].Y) == 0
-                        || Math.Abs(tile.Y - _selection[0].Y) == 1 && Math.Abs(tile.X - _selection[0].X) == 0)
+                    if (CheckAdjacentTiles(tile, _selection[0]))
+                    {
                         _selection.Add(tile);
+                    }
+                    else
+                    {
+                        _selection.Clear();
+                        _selection.Add(tile);
+                    }
                 }
                 else
                 {
@@ -139,8 +147,7 @@ namespace Match3
                 return;
 
             await SwapAsync(_selection[0], _selection[1]);
-
-
+            
             //to do: доделать обработку комбинацию из 4-х
             /*if (IsFourTileCombination(_selection.ToArray()))
             {
@@ -155,6 +162,14 @@ namespace Match3
                 }
             }*/
 
+            if (!await TryMatchAsync())
+            {
+                _levelManager.SetupCurrentMovesText();
+                await SwapAsync(_selection[0], _selection[1]);
+            }
+            else
+                _levelManager.SetupCurrentMovesText();
+            
             var matrix = Matrix;
 
             while (TileDataMatrixUtility.FindBestMove(matrix) == null ||
@@ -168,6 +183,12 @@ namespace Match3
             _selection.Clear();
         }
 
+        private bool CheckAdjacentTiles(Tile tile1, Tile tile2)
+        {
+            return Math.Abs(tile1.X - tile2.X) == 1 && Math.Abs(tile1.Y - tile2.Y) == 0
+                   || Math.Abs(tile1.Y - tile2.Y) == 1 && Math.Abs(tile1.X - tile2.X) == 0;
+        }
+        
         private bool IsFourTileCombination(Tile[] tiles)
         {
             if (tiles.Length != 4)
@@ -230,13 +251,7 @@ namespace Match3
 
                 (tile1.Type, tile2.Type) = (tile2.Type, tile1.Type);
                 _isSwapping = false;
-            
-                _levelManager.SetupCurrentMovesText();
-            
-                if (!await TryMatchAsync())
-                {
-                    await SwapAsync(_selection[0], _selection[1]);
-                }
+                
             }
         }
 

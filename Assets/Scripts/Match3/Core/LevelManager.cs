@@ -13,6 +13,7 @@ namespace Match3.Core
         [SerializeField] private TMP_Text _movesCountText;
         [SerializeField] private Transform _tasksParent;
         [SerializeField] private SceneTransition _levelComplete;
+        [SerializeField] private GameObject _disableBoard;
 
         private Level _currentLevel;
         private bool _levelCompleted;
@@ -20,7 +21,7 @@ namespace Match3.Core
 
         private int _movesCount;
         private List<LevelTaskBox> _taskBoxes = new List<LevelTaskBox>();
-
+        
         public void SetupCurrentMovesText()
         {
             _movesCount -= 1;
@@ -62,22 +63,21 @@ namespace Match3.Core
             {
                 taskBox.CheckTask(tileType, destroyedCount);
             }
-
-            CheckLevelCompletion();
-            
-            if (_movesCount <= 0 && !_levelCompleted)
-            {
-                _levelCompleted = true;
-                StartCoroutine(ShowLevelUncompletionScreen());
-            }
         }
 
         private void CheckLevelCompletion()
         {
             if (_missionCompetedCount == _currentLevel.Missions.Count)
             {
+                _disableBoard.SetActive(true);
                 _levelCompleted = true;
                 StartCoroutine(ShowLevelCompletionScreen());
+            }
+            if (_movesCount <= 0 && !_levelCompleted)
+            {
+                _disableBoard.SetActive(true);
+                _levelCompleted = true;
+                StartCoroutine(ShowLevelUncompletionScreen());
             }
         }
 
