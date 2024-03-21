@@ -31,7 +31,7 @@ namespace Match3.Core
 
         private void Awake()
         {
-            _currentLevel = SettingsProvider.Get<LevelsData>().GetCurrentTask();
+            _currentLevel = SettingsProvider.Get<LevelsData>().GetUnlockedTask();
             foreach (var mission in _currentLevel.Missions)
             {
                 var taskBox = Instantiate(SettingsProvider.Get<PrefabSet>().GetPrefab<LevelTaskBox>(), _tasksParent);
@@ -63,7 +63,9 @@ namespace Match3.Core
                 taskBox.CheckTask(tileType, destroyedCount);
             }
 
-            if (_movesCount <= 0)
+            CheckLevelCompletion();
+            
+            if (_movesCount <= 0 && !_levelCompleted)
             {
                 _levelCompleted = true;
                 StartCoroutine(ShowLevelUncompletionScreen());

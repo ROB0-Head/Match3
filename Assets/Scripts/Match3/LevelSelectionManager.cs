@@ -19,7 +19,7 @@ namespace Match3
             {
                 level.Setup(new LevelButtonSettings()
                 {
-                    LevelNumber = i + 1,
+                    LevelNumber = i,
                     StarsCount = _levelsesSettings.Tasks[i].StarsCount,
                     LevelSprite = _levelsesSettings.Tasks[i].LevelButtonType != ELevelButtonType.Current ? _levelsesSettings.LevelImage : _levelsesSettings.CurrentLevelImage,
                     StarsSprite = _levelsesSettings.StarsSprite,

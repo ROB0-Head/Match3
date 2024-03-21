@@ -15,7 +15,7 @@ namespace Match3
     public sealed class Board : MonoBehaviour
     {
         [SerializeField] private List<Row> _rows;
-        
+
         [SerializeField] private LevelManager _levelManager;
 
         [SerializeField] private float _tweenDuration;
@@ -135,11 +135,12 @@ namespace Match3
                 }
             }
 
-            if (_selection.Count < 2) return;
+            if (_selection.Count < 2)
+                return;
 
             await SwapAsync(_selection[0], _selection[1]);
 
-            
+
             //to do: доделать обработку комбинацию из 4-х
             /*if (IsFourTileCombination(_selection.ToArray()))
             {
@@ -153,12 +154,6 @@ namespace Match3
                     swappedTile.Type = _tileTypes.Find(tileType => tileType.TileAbility == EAbility.VerticalLightning);
                 }
             }*/
-
-            if (!await TryMatchAsync())
-            {
-                
-                await SwapAsync(_selection[0], _selection[1]);
-            }
 
             var matrix = Matrix;
 
@@ -232,8 +227,14 @@ namespace Match3
             tile2.Icon = icon1;
 
             (tile1.Type, tile2.Type) = (tile2.Type, tile1.Type);
-            _levelManager.SetupCurrentMovesText();
             _isSwapping = false;
+            
+            _levelManager.SetupCurrentMovesText();
+            
+            if (!await TryMatchAsync())
+            {
+                await SwapAsync(_selection[0], _selection[1]);
+            }
         }
 
         private async Task<bool> TryMatchAsync()
@@ -246,7 +247,6 @@ namespace Match3
 
             while (match != null)
             {
-                
                 didMatch = true;
 
                 var tiles = GetTiles(match.Tiles);
@@ -256,7 +256,7 @@ namespace Match3
                 foreach (var tile in tiles)
                     deflateSequence.Join(tile.Icon.transform.DOScale(Vector3.zero, _tweenDuration)
                         .SetEase(Ease.InBack));
-                
+
                 await deflateSequence.Play().AsyncWaitForCompletion();
 
                 var inflateSequence = DOTween.Sequence();
@@ -323,8 +323,9 @@ namespace Match3
 
                 await inflateSequence.Play().AsyncWaitForCompletion();
 
-                OnMatch?.Invoke(Array.Find(_tileTypes.ToArray(), tileType => tileType.TileType == match.TypeId), match.Tiles.Length);
-                
+                OnMatch?.Invoke(Array.Find(_tileTypes.ToArray(), tileType => tileType.TileType == match.TypeId),
+                    match.Tiles.Length);
+
                 match = TileDataMatrixUtility.FindBestMatch(Matrix);
             }
 

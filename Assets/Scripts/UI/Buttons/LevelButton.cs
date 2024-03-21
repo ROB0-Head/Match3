@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using Match3;
+using Match3.Settings;
+using Settings;
 using TMPro;
 using UI.Popups;
 using UnityEngine;
@@ -75,6 +77,8 @@ namespace UI.Buttons
             
             if (_audioSource != null)
                 _audioSource.Play();
+            
+            SettingsProvider.Get<LevelsData>().SelectLevel(int.Parse(_levelNumber.text));
             
             PopupSystem.ShowPopup<StartGamePopup>(new StartGamePopupSettings()
             {

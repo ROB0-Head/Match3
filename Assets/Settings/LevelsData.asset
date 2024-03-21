@@ -18,7 +18,7 @@ MonoBehaviour:
       TargetCount: 5
     - TileType: 2
       TargetCount: 5
-    TotalMoves: 5
+    TotalMoves: 10
     StarsCount: 0
     Score: 0
     LevelButtonType: 3

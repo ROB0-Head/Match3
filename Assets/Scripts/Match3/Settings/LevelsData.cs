@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using System.Linq;
 using SaveSystem;
 using UI.Buttons;
@@ -15,8 +16,18 @@ namespace Match3.Settings
         public Sprite LevelImage;
         public Sprite CurrentLevelImage;
         public List<Sprite> StarsSprite;
-
-        public Level GetCurrentTask() => Tasks.FirstOrDefault(x => x.LevelButtonType == ELevelButtonType.Current);
+        
+        private int _selectedLevel;
+        
+        public void SelectLevel(int levelNumber) => _selectedLevel = levelNumber;
+        
+        public Level GetUnlockedTask()
+        {
+            if (Tasks[_selectedLevel].LevelButtonType == ELevelButtonType.Current)
+                return Tasks.FirstOrDefault(x => x.LevelButtonType == ELevelButtonType.Current);
+            else
+                return Tasks[_selectedLevel];
+        }
         public void SetNextLevelTypes(int starsCount,int score)
         {
             var currentLevelIndex = Tasks.FindIndex(x => x.LevelButtonType == ELevelButtonType.Current);

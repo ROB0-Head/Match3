@@ -40,6 +40,8 @@ public class PopupSystem : MonoBehaviour
 
     public static void CloseThisPopup(string popupId)
     {
+        HideBackground();
+
         var currentPopup = _currentPopups.FirstOrDefault(x => x.PopupId == popupId);
         if (currentPopup == null)
         {
@@ -49,8 +51,6 @@ public class PopupSystem : MonoBehaviour
         {
             _currentPopups.Remove(currentPopup);
         }
-        if (_currentPopups.IsNullOrEmpty())
-            HideBackground();
     }
 
     private static void HideBackground()
